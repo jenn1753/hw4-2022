@@ -1,0 +1,303 @@
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  background-color: #737373;
+  font-size: 18px;
+  line-height: 1.15;
+  margin: 0;
+  padding: 0;
+}
+
+
+.overview{
+  background-attachment: fixed; /* Parallax effect */     
+  background-position: center;  /* Parallax effect */
+  background-repeat: no-repeat; /* Parallax effect */
+  background-size: cover;       /* Parallax effect */
+  color: white;
+  height: 400px;                /* Parallax effect */
+}
+
+
+.overview p{
+  color: white;
+  font-size: 24px;
+  padding: 0 100px;
+  text-align: center;
+}
+
+.overview h1{
+  font-size: 50px;
+}
+
+h1{
+  line-height: 1;
+  padding: 50px 0;
+  text-align: center;
+}
+
+h2{
+  font-size: 32px;
+  line-height: 1.5;
+}
+
+nav li{
+  display:inline;
+  padding-right:20px;
+
+}
+
+nav a{
+  color: black;
+  font-weight: bold;
+  text-decoration: none; 
+}
+
+
+.skip a{
+  background: white;
+  left: 0;
+  padding: 6px;
+  -webkit-transition: top 1s ease-out;
+  transition: top 1s ease-out;
+  z-index: 1;
+}
+
+
+nav{
+  background-color: #ddd;
+  padding: 25px 0; 
+  text-align: left;
+}
+
+footer{
+  background-color: black;
+  color: white;
+  padding-top: 30px;
+  text-align: center;
+}
+
+
+.text-block{
+  background-color: rgba(255, 255, 255, .8);
+  border: 10px solid black;
+  padding: 30px;
+}
+
+
+@media screen and (prefers-reduced-motion: reduce){
+  html{
+      scroll-behavior: auto; /* Removes scroll animation */
+  }
+
+  .skip a{
+    -webkit-transition: none; /* sets to default setting */
+    transition: none;        /* sets to default setting */
+   }
+
+  /*Turn off parallax*/
+  header{
+    background-attachment: initial;
+  }
+}
+
+
+
+/*Your Code Here*/
+/* PLEASE DO NOT REMOVE MY COMMENTS.  THEY HELP US HELP YOU DEBUG. */
+
+/* Step 1: Write selector/rule property to add an underline when
+links in the navigation are in the hover or focus state.*/
+nav li:hover, nav li:focus{
+  text-decoration: underline;
+}
+
+/* Step 2a: Write selector/rule property to position the default position for the skip class element*/
+
+body{
+  position: relative;
+}
+
+.skip{
+  position: absolute;
+  top: -40px;
+  
+} 
+
+/* Step 2b: Write selector/rule property to position the skip class element when it is in focus*/
+.skip:focus{
+  position: absolute; 
+  top: 20px;    
+}
+
+/* Step 3: Write selector/rule property to style all elements when in focus*/
+:focus{
+  border: 2px solid;
+}
+
+
+/* Step 4: Write selector/rule property to style the container */
+
+/* Step 5: Write selector/rule property to add the background image to the 
+first div in the grid  and place it in the grid. */
+
+
+
+/* Steps 6 and 7: Write the selector/rule properties to add place the next elements in the next
+ four rows in the grid. */
+
+      /*This will be a lot of rules.... but be strategic and combine seletors*/
+
+
+ /* Step 8: Write the selector/rule property to style the .text-block class. */
+
+
+/* Add your media query here */
+@media screen and (max-width: 800px){
+  
+  nav li{
+    text-align: left;
+  }
+
+  .container{
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    row-gap: 15px;
+
+  }
+
+  .container div:first-child{
+    background: url("../images/header.jpg") no-repeat scroll;
+    grid-column: 1 / 4;
+  
+  }
+
+
+  .about, .method, .clients, .contact{
+    grid-column: 2 / span 1;
+
+  }
+
+  .about, .about-image{
+    grid-row-start: 2;
+  }
+
+  .method, .method-image{
+    grid-row-start: 3;
+  }
+
+  .clients, .clients-image{
+    grid-row-start: 4;
+  }
+  
+  .contact, .contact-image{
+    grid-row-start: 5;
+  }
+
+  .about-image, .method-image, .clients-image, .contact-image{
+    grid-column: 1/4;
+    max-height: 600px;
+    overflow: hidden;
+    grid-column: 1 / span 3;
+    height: fit-content;
+  
+  }
+
+  .text-block{
+
+    text-align: center;
+    overflow: scroll;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+}
+
+  /* Step 9: Write the selector/rule property to style the nav element */
+
+ 
+  /* Step 10: Write the selector/rule property to update the .container class */
+
+
+  /* Steps 11 and 12: Update the grid-column property of the grid's children (where-needed)*/
+
+
+
+ /* Step 13:Write the selector/rule property to update the .text-block class */
+
+ 
+
+  @media screen and (min-width: 800px){
+
+    .container{
+
+      display: grid;
+      grid-template-columns: 50px auto 500px auto 50px;
+      row-gap: 15px;
+  
+    }
+    
+    nav{
+      padding: 30px 0px 30px 0px;
+      text-align: right;
+
+    }
+    
+    div.text-block h2{
+      text-align: center;
+    }
+
+
+    .container div:first-child{
+      background: url("../images/header.jpg") no-repeat scroll;
+      grid-column: 1 / 6;
+    }
+
+    .about-image, .method-image, .clients-image, .contact-image{
+      overflow: hidden;
+      height: fit-content;
+      max-height: 400px;
+    }
+
+
+    .about, .clients, .method-image, .contact-image{
+      grid-column: 3 / span 2;
+    }
+
+    .method, .contact, .about-image, .clients-image{
+      grid-column: 2 / span 2;
+    }
+
+
+    .about, .about-image{
+      grid-row-start: 2;
+    }
+
+    
+  .method, .method-image{
+    grid-row-start: 3;
+  }
+
+  .clients, .clients-image{
+    grid-row-start: 4;
+  }
+  
+  .contact, .contact-image{
+    grid-row-start: 5;
+  }
+
+  .text-block{
+
+    text-align: center;
+    max-height: 250px;
+    overflow: scroll;
+    margin-bottom: auto;
+    margin-top: auto;
+
+  }
+  }
+
+  
+ 
